@@ -37,9 +37,10 @@ The class names are in a text (gsv24.names).  They are listed in our best estima
 - <kbd>e</kbd> Erase an object
 - <kbd>SHIFT + PgUp</kbd> Load the next annotation file (saves the current one first)
 - <kbd>SHIFT + PgDn</kbd> Load the previous annotation file (saves the current one first)
-- <kbd>\</kbd> Rename the selected object to mark it 'unlabeled'
+- <kbd>BACKSLASH </kbd> Rename the selected object to mark it 'unlabeled'
 
 A different keymap applies when the object editor is active
+(TODO)
 
 
 
