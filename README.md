@@ -8,7 +8,13 @@ Here is the video:
 [Quick and poorly done demo of the software](https://drive.google.com/a/miamioh.edu/file/d/1GSLZ6SxRTNUJhUpCXeLIq11hDzIqoqwP/view?usp=sharing)
 
 ## Data
-The data is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public. 
+The data is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public.
+Once you obtain access you can put it in the correct (default) location by this:
+```bash
+ cd $REPO_FOLDER
+ unzip merged.zip
+```
+where `$REPO_FOLDER` should be replaced by (not surprisingly) the folder that you have cloned this repo into. 
 
 ## Palette
 The color pallette is in a file (gsv24.palette). It was generated using the [glasbey](https://github.com/taketwo/glasbey) method of gnerating maximally distinct colors for categorical images. 
@@ -22,6 +28,7 @@ The class names are in a text (gsv24.names).  They are listed in our best estima
 ## Keymap
 
 - Hovering over an item highlights it
+- Setting the active label (e.g. through the label box) toggles object filtering; when filtering is on, only objects with that label are shown. When filtering is off, everything is selectable. 
 - <kbd>LMB</kbd> to select an item
 - <kbd>RMB</kbd> to start dragging / panning the view
 - <kbd>CTRL</kbd> <kbd>wheel</kbd> to zoom in and out around the mouse cursor
@@ -33,19 +40,28 @@ The class names are in a text (gsv24.names).  They are listed in our best estima
 - <kbd>ESC</kbd> Clear selection
 - <kbd>*</kbd> Toggle visibility of all objects 
 - <kbd>5</kbd> Zoom to selected object
-- <kbd>CTRL+Z</kbd> Undo a change
+- <kbd>CTRL+Z</kbd> Undo a change (undoes an entire edit to an object, can also undo object insertion, deletion, can undo moving to the next/previous file also)
 - <kbd>CTRL+SHIFT+Z</kbd> Redo a previously undone change
 - <kbd>s</kbd> Save the annotation file
-- <kbd>d</kbd> Duplicatre the selected object
-- <kbd>e</kbd> Erase an object
-- <kbd>SHIFT + PgUp</kbd> Load the next annotation file (saves the current one first)
-- <kbd>SHIFT + PgDn</kbd> Load the previous annotation file (saves the current one first)
+- <kbd>d</kbd> Duplicate the selected object. This works in edit mode or regular mode. 
+- <kbd>e</kbd> Erase an object, if not currentlky editing, 
+- <kbd>SHIFT + PgUp</kbd> Load the next annotation file (saves the current one first), unless we are currently in editing mode. 
+- <kbd>SHIFT + PgDn</kbd> Load the previous annotation file (saves the current one first), unless we are currently in editing mode. 
 - <kbd>BACKSLASH </kbd> Rename the selected object to mark it 'unlabeled'
 
 A different keymap applies when the object editor is active
-(TODO)
-
-
+- Setting the active label (e.g. using the label box) changes the label of the edited object. 
+- Hovering with the mouse selects points or edges
+- <kbd>LMB</kbd> drags the selected point or edge, if nothing is selects you will drag the entire polygon. 
+- <kbd>n</kbd> + <kbd>LMB</kbd> Slide selected edge in perspective (the line moves in its normal direction, and stretches to fit the lines indicent to it)
+- <kbd>x</kbd> + <kbd>LMB</kbd> or <kbd>x</kbd> + <kbd>LMB</kbd> constrain motion to the horizontal (x) or virtical (y) directrions. 
+- <kbd>LEFT<\kbd>, <kbd>RIGHT<\kbd>, <kbd>UP<\kbd>, <kbd>DOWN<\kbd> move the selection one pixel at a time. 
+- <kbd>PgUp</kbd> Select next point
+- <kbd>PgDn</kbd> Select previous point
+- <kbd>SHIFT</kbd> + <kbd>PgUp</kbd> Select next edge or point
+- <kbd>SHIFT</kbd> + <kbd>PgDn</kbd> Select previous edge or point
+- <kbd>CTRL+z</kbd>  Undo an edit to the object.
+- <kbd>CTRL+SHIFT+z</kbd>  Redo an edit to the object.
 
 
 
