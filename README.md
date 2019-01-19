@@ -16,14 +16,29 @@ Once you obtain access you can put it in the correct (default) location by this:
 ```
 where `$REPO_FOLDER` should be replaced by (not surprisingly) the folder that you have cloned this repo into. 
 
-## Palette
-The color pallette is in a file (gsv24.palette). It was generated using the [glasbey](https://github.com/taketwo/glasbey) method of gnerating maximally distinct colors for categorical images. 
+## Running the program
 
-Some palette items were rearranged / edited for aesthetics. 
+### From a terminal:
+```bash
+python annotationeditor.py --help
+```
+and read the instructions. 
 
-## Class/Label Names
-The class names are in a text (gsv24.names).  They are listed in our best estimate for their ZORDER -- that is, rendering them from first-to-last using the painters algorithm is a reasonable way of producing a single label per pixel. 
+### From within a Jupyter Notebook
 
+```python3
+%pylab widget 
+# or %matplotlib widget iof you prefer
+
+from annotationeditor import AnnotationEditor
+fig = figure()
+ax = gca()
+ae = AnnotationEditor(ax)
+
+# Create a labelbox to add the labels to the bottom
+ae.create_label_box()
+```
+Note that you need to keep the `AnnotationEditor` object alive for the figuire to remain responsive. 
 
 ## Keymap
 
@@ -65,6 +80,13 @@ A different keymap applies when the object editor is active
 
 
 
+## Palette
+The color pallette is in a file (gsv24.palette). It was generated using the [glasbey](https://github.com/taketwo/glasbey) method of gnerating maximally distinct colors for categorical images. 
+
+Some palette items were rearranged / edited for aesthetics. 
+
+## Class/Label Names
+The class names are in a text (gsv24.names).  They are listed in our best estimate for their ZORDER -- that is, rendering them from first-to-last using the painters algorithm is a reasonable way of producing a single label per pixel. 
 
  
 
