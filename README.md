@@ -4,6 +4,9 @@
 
 It is easier to demo than to write documentation at this phase of development -- although I should make a keymap. A demo video will be put on Google drive and I will link to it after it uploads. 
 
+Here is the video:
+[Quick and poorly done demo of the software](https://drive.google.com/a/miamioh.edu/file/d/1GSLZ6SxRTNUJhUpCXeLIq11hDzIqoqwP/view?usp=sharing)
+
 ## Data
 The data is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public. 
 
