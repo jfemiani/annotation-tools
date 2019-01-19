@@ -71,6 +71,8 @@ A different keymap applies when the object editor is active
 - <kbd>n</kbd> + <kbd>LMB</kbd> Slide selected edge in perspective (the line moves in its normal direction, and stretches to fit the lines indicent to it)
 - <kbd>x</kbd> + <kbd>LMB</kbd> or <kbd>x</kbd> + <kbd>LMB</kbd> constrain motion to the horizontal (x) or virtical (y) directrions. 
 - <kbd>LEFT</kbd>, <kbd>RIGHT</kbd>, <kbd>UP</kbd>, <kbd>DOWN</kbd> move the selection one pixel at a time. 
+- <kbd>e</kbd> Erase / collapse the selected edge or vertex.  Edges collapse to the mouse-pointer if it is within `pick_radius` of the edge, otherwise the collapse to the edges center. 
+- <kbd>w</kbd> Split an edge / add a point to the polygon. Addes a point immediately after the selected point, or in the middle of a selected edge. If the mouse pointer is within `pick_radius` of an edge the new point is positioned at the mouse cursor. If no points are selected, the point is added to the end of the polygon (wherever that is). 
 - <kbd>PgUp</kbd> Select next point
 - <kbd>PgDn</kbd> Select previous point
 - <kbd>SHIFT</kbd> + <kbd>PgUp</kbd> Select next edge or point
