@@ -55,7 +55,7 @@ A different keymap applies when the object editor is active
 - <kbd>LMB</kbd> drags the selected point or edge, if nothing is selects you will drag the entire polygon. 
 - <kbd>n</kbd> + <kbd>LMB</kbd> Slide selected edge in perspective (the line moves in its normal direction, and stretches to fit the lines indicent to it)
 - <kbd>x</kbd> + <kbd>LMB</kbd> or <kbd>x</kbd> + <kbd>LMB</kbd> constrain motion to the horizontal (x) or virtical (y) directrions. 
-- <kbd>LEFT<\kbd>, <kbd>RIGHT<\kbd>, <kbd>UP<\kbd>, <kbd>DOWN<\kbd> move the selection one pixel at a time. 
+- <kbd>LEFT</kbd>, <kbd>RIGHT</kbd>, <kbd>UP</kbd>, <kbd>DOWN</kbd> move the selection one pixel at a time. 
 - <kbd>PgUp</kbd> Select next point
 - <kbd>PgDn</kbd> Select previous point
 - <kbd>SHIFT</kbd> + <kbd>PgUp</kbd> Select next edge or point
