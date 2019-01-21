@@ -157,6 +157,9 @@ class FacadeSubImage(object):
 
         return (o for o in self.annotation.object if o.name in label)
 
+    def __iter__(self):
+        return self.iter_objects()
+
     def points(self, object, tfm=None):
         # Get the points from the polygon associated with the object
         if isinstance(object, EasyDict):

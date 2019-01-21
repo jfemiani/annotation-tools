@@ -140,13 +140,10 @@ class AnnotationEditor(object):
 
         if value != self._facade:
             self._facade = value
-
-            if self.axis_image is None:
-                self.axis_image = plt.imshow(value.image, zorder=-1)
-            else:
+            self.ax.dataLim.set(self.ax.dataLim.null())
+            if self.axis_image is not None:
                 self.axis_image.remove()
-                self.axis_image = plt.imshow(value.image, zorder=-1)
-
+            self.axis_image = self.ax.imshow(value.image, zorder=-1)
             self.ax.figure.suptitle(os.path.relpath(value.annotation_path, start=self.root))
 
             # Update the object selector
@@ -353,11 +350,11 @@ class AnnotationEditor(object):
             xy = np.array([[x, y]])
         else:
             xy = self.poly_selector.polygons[index].get_xy()
+            self.label.set_text(self.facade.annotation.object[index].name)
 
         self.poly_editor = PolygonEditor(xy, ax=self.ax,
                                          complete=index >= 0,
-                                         onupdate=self._on_polygon_edited)
-        self.label.set_text(self.facade.annotation.object[index].name)
+                                         on_update=self._on_polygon_edited)
 
     def is_editing(self):
         return self.poly_editor is not None
@@ -540,6 +537,10 @@ class AnnotationEditor(object):
         if self.is_editing():
             self.finish_editing()
 
+        if self.active_object is None:
+            self.canvas.toolbar.set_message('No selection -- cannot delete')
+            return
+
         obj = deepcopy(self.active_object)
         obj.update(deleted=deleted)
         self.set_object(self.active_index, obj)
@@ -617,13 +618,28 @@ class AnnotationEditor(object):
         elif event.key == 'shift+pageup':
             if not self.is_editing():
                 self.load_next_annotation()
+                self.poly_selector.select_next()
         elif event.key == 'shift+pagedown':
             if not self.is_editing():
                 self.load_previous_annotation()
+                self.poly_selector.select_prev()
         elif event.key == '\\':
-            o = deepcopy(self.get_active_object())
-            o.name = 'unlabeled'
-            self.set_object(self.active_index, o)
+            if self.get_active_object() is not None:
+                o = deepcopy(self.get_active_object())
+                o.name = 'unlabeled'
+                self.set_object(self.active_index, o)
+        elif event.key == ']':
+            self.poly_selector.select_next()
+            while self.get_active_object() is None:
+                self.load_next_annotation()
+                self.poly_selector.fit_all()
+                self.poly_selector.select_next()
+                self.canvas.draw()
+        elif event.key == '[':
+            self.poly_selector.select_prev()
+            while self.get_active_object() is None:
+                self.load_previous_annotation()
+                self.poly_selector.select_prev()
 
     def connect(self, event, callback):
         self.cids.append(self.canvas.mpl_connect(event, callback))
@@ -650,6 +666,8 @@ def run():
                    help="The folder (grooup of annotations) to work with")
     p.add_argument('--username', '-u', type=str,
                    help='name of the person editing annotations')
+    p.add_argument('--auto-advance', type=bool,
+                   help="Automatically advance to the next file when no more selectable items found")
     args = p.parse_args()
 
     # This code is designed to work insided a Jupyter notebook
@@ -681,6 +699,8 @@ def run():
                           )
     ae.set_label_box(ae.create_label_box(lbax))
 
+
+    # TODO: Can this be made part of AnnotationEditor?
     def on_resize(event: ResizeEvent):
         h = ae.get_label_box().get_preferred_height()
         box = ae.ax.get_position()
