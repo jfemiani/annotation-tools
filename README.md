@@ -23,6 +23,7 @@ where `$REPO_FOLDER` should be replaced by (not surprisingly) the folder that yo
 python annotationeditor.py --help
 ```
 and read the instructions. 
+Running it with no command line arguments assumes that is at the relative path `.gsv24` and it will cycle through all images in the dataset. 
 
 ### From within a Jupyter Notebook
 
