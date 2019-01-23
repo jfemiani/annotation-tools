@@ -41,6 +41,9 @@ ae.create_label_box()
 ```
 Note that you need to keep the `AnnotationEditor` object alive for the figuire to remain responsive. 
 
+Also, you need to be running in a notebook with syupport for `%matplotlib widget` (preferred) or `%matplotlib notebook`.
+I find it very helpful to install the package decribed here: https://github.com/matplotlib/jupyter-matplotlib
+
 ## Keymap
 
 - Hovering over an item highlights it
