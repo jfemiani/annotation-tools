@@ -8,7 +8,7 @@ Here is the video:
 [Quick and poorly done demo of the software](https://drive.google.com/a/miamioh.edu/file/d/1GSLZ6SxRTNUJhUpCXeLIq11hDzIqoqwP/view?usp=sharing)
 
 ## Data
-The data is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public.
+The data (imagery) is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public. The annotations are part of this repo. 
 Once you obtain access you can put it in the correct (default) location by this:
 ```bash
  cd $REPO_FOLDER
