@@ -161,6 +161,7 @@ class AnnotationEditor(object):
 
     def set_active_index(self, value):
         self.poly_selector.active_index = value
+        self.canvas.draw_idle()
 
     active_index = property(get_active_index, set_active_index)
 
@@ -573,6 +574,7 @@ class AnnotationEditor(object):
             self.label.set_zorder(len(self.poly_selector.polygons) + 1)
             self.label.set_text(self._facade.annotation.object[index].name)
             self.label.set_visible(True)
+        self.canvas.draw_idle()
 
     def _on_poly_hover(self, index):
         if self.on_hover is not None:
@@ -614,7 +616,12 @@ class AnnotationEditor(object):
             self.start_editing()
         elif event.key == 'e':
             if not self.is_editing():
+                cur = self.poly_selector.get_active_index()
+                self.poly_selector.select_next()
+                next = self.poly_selector.get_active_index()
+                self.set_active_index(cur)
                 self.delete_active()
+                self.set_active_index(next)
         elif event.key == 'shift+pageup':
             if not self.is_editing():
                 self.load_next_annotation()
@@ -632,14 +639,15 @@ class AnnotationEditor(object):
             self.poly_selector.select_next()
             while self.get_active_object() is None:
                 self.load_next_annotation()
-                self.poly_selector.fit_all()
                 self.poly_selector.select_next()
-                self.canvas.draw()
+                print(f"Scanning {self.facade.annotation.filename}")
+            self.poly_selector.fit_active()
         elif event.key == '[':
             self.poly_selector.select_prev()
             while self.get_active_object() is None:
                 self.load_previous_annotation()
                 self.poly_selector.select_prev()
+            self.poly_selector.fit_active()
 
     def connect(self, event, callback):
         self.cids.append(self.canvas.mpl_connect(event, callback))
@@ -663,24 +671,22 @@ def run():
     p.add_argument('--root', type=str, default=DATA_ROOT,
                    help="The root of the dataset.")
     p.add_argument('--folder', type=str, default='merged',
-                   help="The folder (grooup of annotations) to work with")
+                   help="The folder (group of annotations) to work with")
     p.add_argument('--username', '-u', type=str,
                    help='name of the person editing annotations')
     p.add_argument('--auto-advance', type=bool,
                    help="Automatically advance to the next file when no more selectable items found")
     args = p.parse_args()
 
-    # This code is designed to work insided a Jupyter notebook
+    # This code is designed to work inside a Jupyter notebook
     # so we use a matplotlib Figure as our GUI
     fig = plt.figure(figsize=(9, 6), frameon=False)
 
-    # Prevent the toobar from handling some key press events (e.g. s)
+    # Prevent the toolbar from handling some key press events (e.g. s)
     fig.canvas.mpl_disconnect(fig.canvas.manager.key_press_handler_id)
 
-    splits = [0.09, 1]
-    lbax = plt.axes([0, 0.0, 1, splits[0]], xticks=[], yticks=[])
-    ax = plt.axes([0, splits[0], 1, splits[1] - splits[0]],
-                  xticks=[], yticks=[])
+    labels_selector_ax = plt.axes([0., 0., 1., 0.09], xticks=[], yticks=[])
+    ax = plt.axes([0., 0.09, 1., 0.91], xticks=[], yticks=[])
     ax.axis('equal')
 
     if args.input:
@@ -697,7 +703,7 @@ def run():
                           folder=args.folder,
                           annotations=annotations
                           )
-    ae.set_label_box(ae.create_label_box(lbax))
+    ae.set_label_box(ae.create_label_box(labels_selector_ax))
 
 
     # TODO: Can this be made part of AnnotationEditor?

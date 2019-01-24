@@ -1,7 +1,9 @@
+import json
 import shutil
 
 from PIL import Image
 import numpy as np
+from matplotlib.axes import Axes
 from numpy import array, eye
 from numpy.linalg import inv
 import os
@@ -74,24 +76,11 @@ class FacadeSubImage(object):
         # to make 24 maximally distinct colors. 
         self.colors = np.loadtxt(self._path('colors.txt'), delimiter=',', dtype=np.uint8)
 
-        # Originally this was just for a rectified facade subimage, but now I am
-        # using the class for an entire facade image. 
-
-        # 'dat' will be the contents of the JSON file if this was a sub-image
-        #  or None if this is an entire images
-        if dat:
-            self.projection = array(dat.projection)
-            self.translation = array([[1, 0, dat.subimage.top],  # When I saved the JSON files,
-                                      [0, 1, dat.subimage.left],  # I mixed op top and left
-                                      [0, 0, 1]])
-            self.annotation_path = dat.annotation
-        else:
-            # Not a subimage -- so no projection or translation.
-            # Since there is no JSON file, the annotation argument must be passed in
-            assert annotation is not None, "You must use either `dat` or `annotation` arguments"
-            self.projection = eye(3)
-            self.translation = eye(3)
+        if annotation:
             self.annotation_path = annotation
+        elif dat:
+            self.annotation_path = dat.annotation
+
 
         # It is possible that the annotation file does not exist
         self.has_annotation = os.path.isfile(self.annotation_path)
@@ -108,10 +97,6 @@ class FacadeSubImage(object):
                     self.annotation_path = path
                     break
 
-        # The projection matrices to rectify (or restore) points
-        self.rectify_matrix = inv(self.projection) @ inv(self.translation)
-        self.rectify_inverse_matrix = self.translation @ self.projection
-
         # Some JSON files were never exported for some reason -- so there may not be
         # an associated annotation XML
         if self.has_annotation:
@@ -127,13 +112,18 @@ class FacadeSubImage(object):
             self.annotation = None
 
         # Get the image associated with annotation (if we can find it)
+        self.image_path = None
         if self.annotation:
-            self.image_path = os.path.join(DATA_ROOT,
-                                           'Images',
-                                           self.annotation.folder,
-                                           self.annotation.filename)
+            for r in [self.root] + roots:
+                image_path = os.path.join(r,
+                                          'Images',
+                                          self.annotation.folder,
+                                          self.annotation.filename)
+                if os.path.isfile(image_path):
+                    self.image_path = image_path
+                    break
 
-        else:
+        if self.image_path is None:
             self.image_path = self.annotation_path.replace('Annotations', 'Images').replace('.xml', '.jpg')
 
         # Open the image (header, using PIL) if it exists. 
@@ -141,6 +131,45 @@ class FacadeSubImage(object):
             self.image = Image.open(self.image_path)
         else:
             self.image = None
+
+        # Originally this was just for a rectified facade subimage, but now I am
+        # using the class for an entire facade image.
+
+        if dat is None:
+            # The data is in a file alongside the image
+            dat_file = self.image_path.replace('-highlighted.jpg', '.json')
+            if os.path.isfile(dat_file):
+                with open(dat_file, 'rb') as df:
+                    dat = EasyDict(json.load(df))
+
+        # 'dat' will be the contents of the JSON file if this was a sub-image
+        #  or None if this is an entire images
+        if dat:
+            self.projection = array(dat.projection)
+            self.translation = array([[1, 0, dat.subimage.top],  # When I saved the JSON files,
+                                      [0, 1, dat.subimage.left],  # I mixed op top and left
+                                      [0, 0, 1]])
+            self.extent=[dat.subimage.bottom-0.5,
+                         dat.subimage.top-0.5,
+                         dat.subimage.left-0.5,
+                         dat.subimage.right-0.5]
+        else:
+            # Not a subimage -- so no projection or translation.
+            # Since there is no JSON file, the annotation argument must be passed in
+            assert annotation is not None, "You must use either `dat` or `annotation` arguments"
+            self.projection = eye(3)
+            self.translation = eye(3)
+            if self.image:
+                self.extent = [-0.5,
+                               self.image.width-0.5,
+                               -0.5,
+                               self.image.height-0.5]
+            else:
+                self.extent = [0 ,1, 0, 1]
+
+        # The projection matrices to rectify (or restore) points
+        self.rectify_matrix = inv(self.projection) @ inv(self.translation)
+        self.rectify_inverse_matrix = self.translation @ self.projection
 
     def _path(self, *args):
         return os.path.join(self.root, *args)
@@ -380,12 +409,21 @@ class FacadeSubImage(object):
 
         return xmin - pad_x, ymin - pad_y, xmax + pad_x, ymax + pad_y
 
-    def plot(self, ax=None, labels=None, objects=None, alpha=0.6, ls='-'):
+    def plot(self, ax: Axes = None, show_image=True, labels=None, objects=None, alpha=0.6, ls='-'):
         # Reuse the current axis if none was passed in
         ax = ax or plt.gca()
 
         # I am now using this same class for the ENTIRE image as well
         # as for sub images of facades.
+        if show_image:
+            if self.extent:
+                plt.imshow(self.image, zorder=-1, extent=self.extent)
+            else:
+                plt.imshow(self.image, zorder=-1)
+
+        if self.extent:
+            ax.set_xbound(self.extent[0], self.extent[1])
+            ax.set_ybound(self.extent[2], self.extent[3])
 
         # If this is a subimage of a facade, use the JSON file to 
         # determine the actual facade polygon
