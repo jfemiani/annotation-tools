@@ -8,7 +8,7 @@ Here is the video:
 [Quick and poorly done demo of the software](https://drive.google.com/a/miamioh.edu/file/d/1GSLZ6SxRTNUJhUpCXeLIq11hDzIqoqwP/view?usp=sharing)
 
 ## Data
-The data is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public.
+The data (imagery) is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public. The annotations are part of this repo. 
 Once you obtain access you can put it in the correct (default) location by this:
 ```bash
  cd $REPO_FOLDER
@@ -23,6 +23,7 @@ where `$REPO_FOLDER` should be replaced by (not surprisingly) the folder that yo
 python annotationeditor.py --help
 ```
 and read the instructions. 
+Running it with no command line arguments assumes that is at the relative path `.gsv24` and it will cycle through all images in the dataset. 
 
 ### From within a Jupyter Notebook
 
@@ -39,6 +40,9 @@ ae = AnnotationEditor(ax)
 ae.create_label_box()
 ```
 Note that you need to keep the `AnnotationEditor` object alive for the figuire to remain responsive. 
+
+Also, you need to be running in a notebook with syupport for `%matplotlib widget` (preferred) or `%matplotlib notebook`.
+I find it very helpful to install the package decribed here: https://github.com/matplotlib/jupyter-matplotlib
 
 ## Keymap
 
