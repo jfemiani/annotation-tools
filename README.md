@@ -7,6 +7,17 @@ It is easier to demo than to write documentation at this phase of development --
 Here is the video:
 [Quick and poorly done demo of the software](https://drive.google.com/a/miamioh.edu/file/d/1GSLZ6SxRTNUJhUpCXeLIq11hDzIqoqwP/view?usp=sharing)
 
+## Setup
+- This code was developed for **python 3.7**, which you can install from http://anaconda.org. 
+- The requirements are listed in `requirements.txt`, which you can install using 
+   ```
+   pip install -r requirements.txt
+   ```
+   You may also use
+   ```
+   conda install --yes --file requirements.txt
+   ```
+   but if one of the requirements has an issue you should fall back to installing them one at a time using `conda install <packagename>` for each package listed in requirements.txt
 ## Data
 The data (imagery) is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public. The annotations are part of this repo. 
 Once you obtain access you can put it in the correct (default) location by this:

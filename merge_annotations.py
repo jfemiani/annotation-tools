@@ -4,7 +4,7 @@ import os
 import shutil
 
 from tqdm import tqdm, trange
-from facadesubimage import FacadeSubImage
+from annotation import Annotation
 from glob import glob
 
 # These are folders with messier sets of images... needs organization
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     images = []
     missing = []
     for fn in tqdm(files):
-        f = FacadeSubImage(fn, root=args.root, roots=args.path)
+        f = Annotation(fn, root=args.root, roots=args.path)
         images.append(f.image_path)
 
         # Find the original image
@@ -65,4 +65,4 @@ if __name__ == '__main__':
         if not os.path.isfile(merged_xml_path):
             shutil.copy_file(ori_xml_path, merged_xml_path)
 
-        ori_f = FacadeSubImage(merged_xml_path, root=args.root, roots=args.path)
+        ori_f = Annotation(merged_xml_path, root=args.root, roots=args.path)

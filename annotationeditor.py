@@ -12,7 +12,7 @@ from uuid import uuid1
 
 from matplotlib.transforms import Bbox
 
-import facadesubimage as fsi
+import annotation as fsi
 from easydict import EasyDict
 from labelboxes import LabelBoxes
 from polygonselector import PolygonSelector
@@ -59,7 +59,7 @@ class AnnotationEditor(object):
             annotations = glob(os.path.join(root, 'Annotations', folder, '*.xml'))
 
         if facade is None:
-            facade = fsi.FacadeSubImage(annotation=annotations[0])
+            facade = fsi.Annotation(annotation=annotations[0])
 
         self.ax = ax
         self.canvas = ax.figure.canvas
@@ -136,7 +136,7 @@ class AnnotationEditor(object):
         return self._facade
 
     def set_facade(self, value):
-        assert isinstance(value, fsi.FacadeSubImage)
+        assert isinstance(value, fsi.Annotation)
 
         if value != self._facade:
             self._facade = value
@@ -176,7 +176,7 @@ class AnnotationEditor(object):
         if ob is None:
             index = -1
         else:
-            index = self.facade.annotations.index(ob)
+            index = self.facade.annotation.object.index(ob)
         self.set_active_index(index)
 
     active_object = property(get_active_object, set_active_object)
@@ -245,7 +245,7 @@ class AnnotationEditor(object):
         if action == self.ACTION_LOAD_ANNOTATION:
             filename = data['filename']
             assert 'ori_filename' in data
-            self.facade = fsi.FacadeSubImage(filename, root=self.root)
+            self.facade = fsi.Annotation(filename, root=self.root)
         elif action == self.ACTION_SET_OBJECT:
             index = data['index']
             obj = data['value']
@@ -695,7 +695,7 @@ def run():
         annotations = glob(os.path.join(args.root, 'Annotations', args.folder, '*.xml'))
         annotations = sorted(annotations, key=lambda x: os.stat(x).st_mtime)
 
-    facade = fsi.FacadeSubImage(annotation=annotations[0], root=args.root)
+    facade = fsi.Annotation(annotation=annotations[0], root=args.root)
     ae = AnnotationEditor(ax,
                           facade=facade,
                           root=args.root,

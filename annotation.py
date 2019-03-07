@@ -56,7 +56,7 @@ DATA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), 'gsv24'))
 #         self.parts = parts
 
 
-class FacadeSubImage(object):
+class Annotation(object):
     def __init__(self, annotation=None, dat=None, root=DATA_ROOT, roots=None):
 
         # The JSON file for a rectified subimage
@@ -137,7 +137,8 @@ class FacadeSubImage(object):
 
         if dat is None:
             # The data is in a file alongside the image
-            dat_file = self.image_path.replace('-highlighted.jpg', '.json')
+            dat_file = self.image_path.replace('-highlighted', '')      # Will not have '-highlighted' in the name
+            dat_file = dat_file.replace('.jpg', '.json')  # will not be a jpg
             if os.path.isfile(dat_file):
                 with open(dat_file, 'rb') as df:
                     dat = EasyDict(json.load(df))
@@ -162,10 +163,10 @@ class FacadeSubImage(object):
             if self.image:
                 self.extent = [-0.5,
                                self.image.width-0.5,
-                               -0.5,
-                               self.image.height-0.5]
+                               self.image.height - 0.5,
+                               -0.5]
             else:
-                self.extent = [0 ,1, 0, 1]
+                self.extent = [0 ,1, 1, 0]
 
         # The projection matrices to rectify (or restore) points
         self.rectify_matrix = inv(self.projection) @ inv(self.translation)
@@ -417,9 +418,9 @@ class FacadeSubImage(object):
         # as for sub images of facades.
         if show_image:
             if self.extent:
-                plt.imshow(self.image, zorder=-1, extent=self.extent)
+                ax.imshow(self.image, zorder=-1, extent=self.extent)
             else:
-                plt.imshow(self.image, zorder=-1)
+                ax.imshow(self.image, zorder=-1)
 
         if self.extent:
             ax.set_xbound(self.extent[0], self.extent[1])
@@ -455,7 +456,7 @@ class FacadeSubImage(object):
 
 
 def test():
-    f = FacadeSubImage('./gsv24/Annotations/merged/ny_many-0440.xml')
+    f = Annotation('./gsv24/Annotations/merged/ny_many-0440.xml')
     fig = plt.figure()
     ax = plt.gca()
     plt.imshow(f.image)
