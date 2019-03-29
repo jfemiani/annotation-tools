@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "HlS_1fAvngRN200YZF_08Q", "building-id": 1629, "face-index": 1.0, "fov": 28.365165511609945, "distance": 15.284928630332805, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/brisbane_australia\/brisbane_australia-001629-000001-HlS_1fAvngRN200YZF_08Q.jpg", "heading": 144.98320007324219, "tilt": 88.998764038085938, "roll": -1.1414774656295781, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=HlS_1fAvngRN200YZF_08Q&fov=90&heading=215.016799927&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 153.026450642307395, -27.48914194848151 ] } }
+]
+}

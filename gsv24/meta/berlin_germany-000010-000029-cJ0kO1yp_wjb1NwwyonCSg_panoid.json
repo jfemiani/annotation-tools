@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "cJ0kO1yp_wjb1NwwyonCSg", "building-id": 10, "face-index": 29.0, "fov": 52.837966016145387, "distance": 5.9875431370928895, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/berlin_germany\/berlin_germany-000010-000029-cJ0kO1yp_wjb1NwwyonCSg.jpg", "heading": 76.339035034179688, "tilt": 91.396926879882812, "roll": -0.8329811692237854, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=cJ0kO1yp_wjb1NwwyonCSg&fov=90&heading=283.660964966&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 13.382610607124009, 52.522031388237757 ] } }
+]
+}

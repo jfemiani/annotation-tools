@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "312", "face-index": 11, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/bucharest_romania\/bucharest_romania-dissolved-sorted.geojson", "pano-count": 40, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=44.449954463,26.0747511599&pano=mycVLDX20HjHulG3RPRQZw" }, "geometry": { "type": "LineString", "coordinates": [ [ 26.074682428394805, 44.449902872457017 ], [ 26.074819891454439, 44.450006053570689 ] ] } }
+]
+}

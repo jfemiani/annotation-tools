@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "1622", "face-index": 3, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/brisbane_australia\/brisbane_australia-dissolved-sorted.geojson", "pano-count": 54, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=-27.4942647638,153.026083951&pano=EaY2nwj5OMKOv0BVry8slA" }, "geometry": { "type": "LineString", "coordinates": [ [ 153.026121126965961, -27.494271553649753 ], [ 153.026046774144703, -27.494257973991306 ] ] } }
+]
+}

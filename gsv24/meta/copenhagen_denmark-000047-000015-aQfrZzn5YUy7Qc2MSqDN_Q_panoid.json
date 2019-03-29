@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "aQfrZzn5YUy7Qc2MSqDN_Q", "building-id": 47, "face-index": 15.0, "fov": 108.1147399230148, "distance": 7.2281918143589845, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/copenhagen_denmark\/copenhagen_denmark-000047-000015-aQfrZzn5YUy7Qc2MSqDN_Q.jpg", "heading": 205.77227783203119, "tilt": 92.7578125, "roll": -1.7790864706039431, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=aQfrZzn5YUy7Qc2MSqDN_Q&fov=90&heading=154.227722168&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 12.588008488829839, 55.684647751694413 ] } }
+]
+}

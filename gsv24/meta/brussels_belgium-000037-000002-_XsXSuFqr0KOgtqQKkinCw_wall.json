@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "37", "face-index": 2, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/brussels_belgium\/brussels_belgium-dissolved-sorted.geojson", "pano-count": 52, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=50.8273190168,4.32990682979&pano=_XsXSuFqr0KOgtqQKkinCw" }, "geometry": { "type": "LineString", "coordinates": [ [ 4.329915724371903, 50.827278887303414 ], [ 4.329897935209509, 50.827359146223394 ] ] } }
+]
+}

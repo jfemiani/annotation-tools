@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "4", "face-index": 45, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/acoruna_spain\/acoruna_spain-dissolved-sorted.geojson", "pano-count": 43, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=43.3794440845,-8.39943551086&pano=22WQvYMnjiiDd_DAIXc-9g" }, "geometry": { "type": "LineString", "coordinates": [ [ -8.399388952785817, 43.379447569092584 ], [ -8.399482068933539, 43.379440599999533 ] ] } }
+]
+}

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "-NHJok1UM0K4zkzNjaX-Sg", "building-id": 64, "face-index": 47.0, "fov": 80.071723299864786, "distance": 6.0520174868420353, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/bucharest_romania\/bucharest_romania-000064-000047--NHJok1UM0K4zkzNjaX-Sg.jpg", "heading": 100.4819641113281, "tilt": 89.619560241699219, "roll": -0.26178160309791559, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=-NHJok1UM0K4zkzNjaX-Sg&fov=90&heading=259.518035889&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 26.086635895509691, 44.436179003625263 ] } }
+]
+}

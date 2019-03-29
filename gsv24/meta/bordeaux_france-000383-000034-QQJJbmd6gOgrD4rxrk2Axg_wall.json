@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "383", "face-index": 34, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/bordeaux_france\/bordeaux_france-dissolved-sorted.geojson", "pano-count": 40, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=44.8293686223,-0.588891524963&pano=QQJJbmd6gOgrD4rxrk2Axg" }, "geometry": { "type": "LineString", "coordinates": [ [ -0.588914065944225, 44.829398985214389 ], [ -0.588868983982099, 44.829338259411294 ] ] } }
+]
+}

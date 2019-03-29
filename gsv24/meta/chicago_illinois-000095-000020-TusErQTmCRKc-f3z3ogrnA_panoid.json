@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "TusErQTmCRKc-f3z3ogrnA", "building-id": 95, "face-index": 20.0, "fov": 20.606038663924721, "distance": 8.7854246680192087, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/chicago_illinois\/chicago_illinois-000095-000020-TusErQTmCRKc-f3z3ogrnA.jpg", "heading": 182.29144287109381, "tilt": 90.458847045898438, "roll": -0.79276460409164429, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=TusErQTmCRKc-f3z3ogrnA&fov=90&heading=177.708557129&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ -87.684137055801628, 42.029401409050138 ] } }
+]
+}

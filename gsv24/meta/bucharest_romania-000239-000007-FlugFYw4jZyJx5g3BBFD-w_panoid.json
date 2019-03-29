@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "FlugFYw4jZyJx5g3BBFD-w", "building-id": 239, "face-index": 7.0, "fov": 114.9977807074735, "distance": 11.713748794725268, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/bucharest_romania\/bucharest_romania-000239-000007-FlugFYw4jZyJx5g3BBFD-w.jpg", "heading": 256.11886596679688, "tilt": 89.629165649414062, "roll": 0.63976305723190308, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=FlugFYw4jZyJx5g3BBFD-w&fov=90&heading=103.881134033&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 26.09916094695123, 44.434942108129988 ] } }
+]
+}

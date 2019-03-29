@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "_XsXSuFqr0KOgtqQKkinCw", "building-id": 37, "face-index": 2.0, "fov": 36.656671062340244, "distance": 13.020514660277613, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/brussels_belgium\/brussels_belgium-000037-000002-_XsXSuFqr0KOgtqQKkinCw.jpg", "heading": 91.610847473144531, "tilt": 89.986618041992188, "roll": -1.3917194604873659, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=_XsXSuFqr0KOgtqQKkinCw&fov=90&heading=268.389152527&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 4.329733767486061, 50.827277971201212 ] } }
+]
+}

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "22", "face-index": 41, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/bern_switzerland\/bern_switzerland-dissolved-sorted.geojson", "pano-count": 33, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=46.957726733,7.45557226844&pano=2Ck_vt32R7kAKcibTXUTlg" }, "geometry": { "type": "LineString", "coordinates": [ [ 7.455612136660611, 46.957712227827237 ], [ 7.455532400221611, 46.957741238140351 ] ] } }
+]
+}

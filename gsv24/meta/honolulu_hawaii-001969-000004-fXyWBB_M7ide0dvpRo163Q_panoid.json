@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "fXyWBB_M7ide0dvpRo163Q", "building-id": 1969, "face-index": 4.0, "fov": 39.701916535332742, "distance": 18.12216893771156, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/honolulu_hawaii\/honolulu_hawaii-001969-000004-fXyWBB_M7ide0dvpRo163Q.jpg", "heading": 77.495079040527344, "tilt": 90.088088989257812, "roll": -0.97946697473526001, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=fXyWBB_M7ide0dvpRo163Q&fov=90&heading=282.504920959&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ -157.834980935327394, 21.288470540775741 ] } }
+]
+}

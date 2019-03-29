@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "Zy_Laodn8TNEeNY0Qkkdbw", "building-id": 189, "face-index": 1.0, "fov": 96.880228455507805, "distance": 9.3670271800541798, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/antwerp_belgium\/antwerp_belgium-000189-000001-Zy_Laodn8TNEeNY0Qkkdbw.jpg", "heading": 21.94438362121582, "tilt": 90.176040649414062, "roll": 0.64233171939849854, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=Zy_Laodn8TNEeNY0Qkkdbw&fov=90&heading=338.055616379&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 4.441734302389222, 51.194623334239878 ] } }
+]
+}

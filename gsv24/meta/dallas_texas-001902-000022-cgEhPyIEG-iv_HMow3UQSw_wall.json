@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "1902", "face-index": 22, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/dallas_texas\/dallas_texas-dissolved-sorted.geojson", "pano-count": 50, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=33.0760976342,-96.8205738201&pano=cgEhPyIEG-iv_HMow3UQSw" }, "geometry": { "type": "LineString", "coordinates": [ [ -96.820202627712504, 33.076096628356673 ], [ -96.820945012467888, 33.076098640012333 ] ] } }
+]
+}

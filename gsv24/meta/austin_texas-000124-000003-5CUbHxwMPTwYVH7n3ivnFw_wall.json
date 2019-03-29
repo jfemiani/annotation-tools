@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "124", "face-index": 3, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/austin_texas\/austin_texas-dissolved-sorted.geojson", "pano-count": 66, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=30.340893508,-97.5573638605&pano=5CUbHxwMPTwYVH7n3ivnFw" }, "geometry": { "type": "LineString", "coordinates": [ [ -97.557421019492637, 30.340902923386842 ], [ -97.557306701516467, 30.340884092583188 ] ] } }
+]
+}

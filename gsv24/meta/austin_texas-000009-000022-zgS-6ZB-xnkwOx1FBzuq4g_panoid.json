@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "zgS-6ZB-xnkwOx1FBzuq4g", "building-id": 9, "face-index": 22.0, "fov": 53.178294332333863, "distance": 16.09936939281355, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/austin_texas\/austin_texas-000009-000022-zgS-6ZB-xnkwOx1FBzuq4g.jpg", "heading": 186.06794738769531, "tilt": 88.719505310058594, "roll": 0.69885551929473877, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=zgS-6ZB-xnkwOx1FBzuq4g&fov=90&heading=173.932052612&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ -97.741597520823831, 30.287341571676698 ] } }
+]
+}

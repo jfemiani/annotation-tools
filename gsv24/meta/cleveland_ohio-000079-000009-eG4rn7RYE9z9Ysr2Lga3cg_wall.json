@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "79", "face-index": 9, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/cleveland_ohio\/cleveland_ohio-dissolved-sorted.geojson", "pano-count": 60, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=41.5011470981,-81.564191546&pano=eG4rn7RYE9z9Ysr2Lga3cg" }, "geometry": { "type": "LineString", "coordinates": [ [ -81.564246220758619, 41.501146578542027 ], [ -81.564136871247456, 41.501147617616091 ] ] } }
+]
+}
