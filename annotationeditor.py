@@ -18,7 +18,7 @@ from labelboxes import LabelBoxes
 from polygonselector import PolygonSelector
 from polygoneditor import PolygonEditor
 
-DATA_ROOT = './gsv24/'
+DATA_ROOT = './psvdata/'
 DEFAULT_LABEL = 24  # unknown
 
 

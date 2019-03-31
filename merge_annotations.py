@@ -11,7 +11,7 @@ from glob import glob
 DEFAULT_ROOTS = [
     os.path.expanduser('~/Projects/old-work/data/labeling/'),
     os.path.expanduser('~/Projects/old-work/data/labeling/output-2018-12-02/'),
-    os.path.expanduser('~/Projects/facade-data/gsv24'),
+    os.path.expanduser('~/Projects/facade-data/psvdata'),
 ]
 
 if __name__ == '__main__':
@@ -21,7 +21,7 @@ if __name__ == '__main__':
                    default='updates/Facades_Jan23',
                    help='A folder of new annotation XMLs')
 
-    p.add_argument('--root', '-r', type=str, default='./gsv24',
+    p.add_argument('--root', '-r', type=str, default='./psvdata',
                    help='The root folder of the dataset')
 
     p.add_argument('--path', '-p', type=str, nargs='*',

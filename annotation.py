@@ -16,7 +16,7 @@ from matplotlib.text import Text
 from matplotlib import pyplot as plt
 from ast import literal_eval
 
-DATA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), 'gsv24'))
+DATA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), 'psvdata'))
 
 
 # class AnnotatedPolygon(object):
@@ -456,7 +456,7 @@ class Annotation(object):
 
 
 def test():
-    f = Annotation('./gsv24/Annotations/merged/ny_many-0440.xml')
+    f = Annotation('./psvdata/Annotations/merged/ny_many-0440.xml')
     fig = plt.figure()
     ax = plt.gca()
     plt.imshow(f.image)
