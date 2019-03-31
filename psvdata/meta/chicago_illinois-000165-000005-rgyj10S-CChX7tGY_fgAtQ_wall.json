@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "165", "face-index": 5, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/chicago_illinois\/chicago_illinois-dissolved-sorted.geojson", "pano-count": 56, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=42.0412937187,-87.6832349417&pano=rgyj10S-CChX7tGY_fgAtQ" }, "geometry": { "type": "LineString", "coordinates": [ [ -87.68302501690205, 42.041289150513293 ], [ -87.683444866508438, 42.04129828678942 ] ] } }
+]
+}

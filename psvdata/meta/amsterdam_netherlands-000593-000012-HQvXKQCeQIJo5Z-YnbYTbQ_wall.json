@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "593", "face-index": 12, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/amsterdam_netherlands\/amsterdam_netherlands-dissolved-sorted.geojson", "pano-count": 84, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=52.3463373674,4.86815093383&pano=HQvXKQCeQIJo5Z-YnbYTbQ" }, "geometry": { "type": "LineString", "coordinates": [ [ 4.868092031242778, 52.346329060134558 ], [ 4.8682098364159, 52.34634567466712 ] ] } }
+]
+}

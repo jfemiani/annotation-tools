@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "ZXDcDEN8BtHvyl8eu57JzQ", "building-id": 59, "face-index": 32.0, "fov": 30.936059667847541, "distance": 11.043637000141118, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/amsterdam_netherlands\/amsterdam_netherlands-000059-000032-ZXDcDEN8BtHvyl8eu57JzQ.jpg", "heading": 124.2073059082031, "tilt": 89.871040344238281, "roll": -0.42054879665374761, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=ZXDcDEN8BtHvyl8eu57JzQ&fov=90&heading=235.792694092&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 4.847973574729934, 52.384020988557133 ] } }
+]
+}

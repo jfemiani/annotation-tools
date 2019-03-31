@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "134", "face-index": 16, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/antwerp_belgium\/antwerp_belgium-dissolved-sorted.geojson", "pano-count": 37, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=51.2177305063,4.39990965194&pano=mNESgKqKh8IA43pR3X-1yg" }, "geometry": { "type": "LineString", "coordinates": [ [ 4.399854630063388, 51.21773136654091 ], [ 4.399964673811581, 51.217729645972341 ] ] } }
+]
+}

@@ -27,7 +27,7 @@ Once you obtain access you can put it in the correct (default) location by this:
 ```
 where `$REPO_FOLDER` should be replaced by (not surprisingly) the folder that you have cloned this repo into. 
 
-## Running the program
+## Running the annotation editing program
 
 ### From a terminal:
 ```bash

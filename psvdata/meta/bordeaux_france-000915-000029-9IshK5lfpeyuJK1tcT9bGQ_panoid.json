@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "9IshK5lfpeyuJK1tcT9bGQ", "building-id": 915, "face-index": 29.0, "fov": 38.182036698066568, "distance": 9.4291066736902156, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/bordeaux_france\/bordeaux_france-000915-000029-9IshK5lfpeyuJK1tcT9bGQ.jpg", "heading": 84.861892700195312, "tilt": 88.905120849609375, "roll": 1.0397963523864751, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=9IshK5lfpeyuJK1tcT9bGQ&fov=90&heading=275.1381073&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ -0.572384263853195, 44.83765698934485 ] } }
+]
+}

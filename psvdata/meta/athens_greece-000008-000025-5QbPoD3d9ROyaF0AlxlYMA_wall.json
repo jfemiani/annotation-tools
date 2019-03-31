@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "8", "face-index": 25, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/athens_greece\/athens_greece-dissolved-sorted.geojson", "pano-count": 60, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=37.9802167764,23.7313196464&pano=5QbPoD3d9ROyaF0AlxlYMA" }, "geometry": { "type": "LineString", "coordinates": [ [ 23.731238930002231, 37.980311773649902 ], [ 23.731400362707113, 37.980121779130954 ] ] } }
+]
+}

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "686", "face-index": 2, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/copenhagen_denmark\/copenhagen_denmark-dissolved-sorted.geojson", "pano-count": 39, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=55.6680315263,12.5498627811&pano=-HTcjpAiAHk1axFPgEDKlw" }, "geometry": { "type": "LineString", "coordinates": [ [ 12.549790319510748, 55.668054576507458 ], [ 12.549935242754504, 55.66800847599611 ] ] } }
+]
+}

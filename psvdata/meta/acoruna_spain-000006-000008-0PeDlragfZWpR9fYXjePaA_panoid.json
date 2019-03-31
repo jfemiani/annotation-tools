@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "0PeDlragfZWpR9fYXjePaA", "building-id": 6, "face-index": 8.0, "fov": 90.609473544869019, "distance": 6.238353258709779, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/acoruna_spain\/acoruna_spain-000006-000008-0PeDlragfZWpR9fYXjePaA.jpg", "heading": 17.8758430480957, "tilt": 90.348785400390625, "roll": -1.4777734279632571, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=0PeDlragfZWpR9fYXjePaA&fov=90&heading=342.124156952&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ -8.40203738349453, 43.378166724966199 ] } }
+]
+}

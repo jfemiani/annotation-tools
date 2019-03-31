@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "ex1D7ciWJRazFLPlnPi0ig", "building-id": 1706, "face-index": 44.0, "fov": 147.01354898473645, "distance": 14.083091316694787, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/dallas_texas\/dallas_texas-001706-000044-ex1D7ciWJRazFLPlnPi0ig.jpg", "heading": 268.82254028320312, "tilt": 88.244918823242188, "roll": -3.3114669322967529, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=ex1D7ciWJRazFLPlnPi0ig&fov=90&heading=91.1774597168&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ -97.00482761799999, 32.838212106 ] } }
+]
+}

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "_-s0ijJ5OFGiEdH_bll1qA", "building-id": 90, "face-index": 0.0, "fov": 87.355655615814342, "distance": 7.4015361605411121, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/athens_greece\/athens_greece-000090-000000-_-s0ijJ5OFGiEdH_bll1qA.jpg", "heading": 280.80465698242188, "tilt": 88.130569458007812, "roll": -0.84054380655288696, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=_-s0ijJ5OFGiEdH_bll1qA&fov=90&heading=79.1953430176&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 23.730456460896821, 37.993018000812427 ] } }
+]
+}

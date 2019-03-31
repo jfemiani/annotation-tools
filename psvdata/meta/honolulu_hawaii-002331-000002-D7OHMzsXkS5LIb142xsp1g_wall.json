@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "2331", "face-index": 2, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/honolulu_hawaii\/honolulu_hawaii-dissolved-sorted.geojson", "pano-count": 124, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=21.2918996642,-157.822199305&pano=D7OHMzsXkS5LIb142xsp1g" }, "geometry": { "type": "LineString", "coordinates": [ [ -157.822262376494137, 21.291923886856193 ], [ -157.822136234420981, 21.291875441594836 ] ] } }
+]
+}

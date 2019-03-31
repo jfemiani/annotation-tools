@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "building-id": "989", "face-index": 211, "source": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/dallas_texas\/dallas_texas-dissolved-sorted.geojson", "pano-count": 48, "url": "https:\/\/www.google.com\/maps\/@?api=1&map_action=pano&viewpoint=32.8093471691,-96.8390622465&pano=9wG3a9VOkwTSqnq6zsbdSQ" }, "geometry": { "type": "LineString", "coordinates": [ [ -96.838875748620026, 32.809321771872391 ], [ -96.839248744361328, 32.809372566348607 ] ] } }
+]
+}

@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "dT07i4y_JguWtC0L52GDIQ", "building-id": 1944, "face-index": 2.0, "fov": 70.969141195707437, "distance": 19.412265468176422, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/cleveland_ohio\/cleveland_ohio-001944-000002-dT07i4y_JguWtC0L52GDIQ.jpg", "heading": 88.083236694335938, "tilt": 89.640121459960938, "roll": 1.1551187038421631, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=dT07i4y_JguWtC0L52GDIQ&fov=90&heading=271.916763306&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ -81.630360480048012, 41.416947513100268 ] } }
+]
+}

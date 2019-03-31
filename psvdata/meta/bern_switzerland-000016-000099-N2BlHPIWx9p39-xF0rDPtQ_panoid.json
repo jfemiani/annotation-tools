@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "panoid": "N2BlHPIWx9p39-xF0rDPtQ", "building-id": 16, "face-index": 99.0, "fov": 34.424682737570251, "distance": 13.670922583058573, "face-image": "\/media\/femianjc\/My Book\/svextract\/data\/walls\/bern_switzerland\/bern_switzerland-000016-000099-N2BlHPIWx9p39-xF0rDPtQ.jpg", "heading": 132.04022216796881, "tilt": 90.88043212890625, "roll": 0.67419874668121338, "year": null, "month": null, "url": "https:\/\/maps.googleapis.com\/maps\/api\/streetview?size=400x400&pano=N2BlHPIWx9p39-xF0rDPtQ&fov=90&heading=227.959777832&pitch=0" }, "geometry": { "type": "Point", "coordinates": [ 7.430659325729806, 46.954353997237362 ] } }
+]
+}
