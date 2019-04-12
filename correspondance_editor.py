@@ -6,11 +6,12 @@ from copy import deepcopy
 
 from matplotlib import pyplot as plt
 from matplotlib.lines import Line2D
-
 import matplotlib.backend_bases
 from matplotlib.backend_bases import MouseEvent, KeyEvent
+
 import numpy as np
 from numpy.linalg import norm
+
 from skimage.transform import PolynomialTransform
 
 LMB = 0

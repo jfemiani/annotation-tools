@@ -2,17 +2,17 @@ import torch
 import torchvision
 import os
 
+from psv import config
 
-DEFAULT_ROOT = os.path.abspath('./psvdata')
 
 class PsvDataset(Dataset):
-    def __init__(self,  split='all', root=DEFAULT_ROOT):
+    def __init__(self,  split='all', root=config.DEFAULT_ROOT):
          self.root = root
          self.split = split
 
 
 class GsvDataset(Dataset):
-    def __init__(self, train=True, fold=1, root=DEFAULT_ROOT,
+    def __init__(self, train=True, fold=1, root=config.DEFAULT_ROOT,
                  size=512,
                  fit='y',
                  crop_to='image',
