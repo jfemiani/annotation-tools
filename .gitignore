@@ -1,8 +1,13 @@
-# GEnerated iages
+# GEnerated images and data
 extracts/
+psvdata/Images
+psvdata/exports
 
-# Pycharm configuration
+Untitled*.ipynb
+
+# IDE configuration
 .idea
+.vscode
 
 # Backups for XMLs that we edit with annotationeditor
 *.xml~  
