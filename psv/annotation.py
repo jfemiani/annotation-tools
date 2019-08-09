@@ -15,8 +15,7 @@ from matplotlib.patches import Polygon
 from matplotlib.text import Text
 from matplotlib import pyplot as plt
 from ast import literal_eval
-
-from psv import config
+from psv.config import L, C
 
 # class AnnotatedPolygon(object):
 #     def __init__(self, username, pts):
@@ -56,7 +55,9 @@ from psv import config
 
 
 class Annotation(object):
-    def __init__(self, annotation=None, dat=None, root=config.DATA_ROOT, roots=None):
+    def __init__(self, annotation=None, dat=None, root=None, roots=None):
+        if root is None:
+            root = C.DATA_ROOT
 
         # The JSON file for a rectified subimage
         if roots is None:
@@ -290,7 +291,7 @@ class Annotation(object):
                         path: str=None,
                         filename: str=None,
                         folder: str=None,
-                        root: str=config.DATA_ROOT,
+                        root: str=C.DATA_ROOT,
                         copy_image: bool=False,
                         image_path: str=None,
                         mkdirs: bool=False):
