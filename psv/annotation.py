@@ -72,36 +72,42 @@ class Annotation(object):
         self.names = np.loadtxt(self._path('names.txt'), dtype='str')
         self.z_orders = {name: i for (i, name) in enumerate(self.names, 0)}
 
-        # The colors were generated using Glasbey's categorical color choosing method
-        # to make 24 maximally distinct colors. 
+        # The colors for plotting etc. 
         self.colors = np.loadtxt(self._path('colors.txt'), delimiter=',', dtype=np.uint8)
 
         if annotation:
             self.annotation_path = annotation
         elif dat:
             self.annotation_path = dat.annotation
-
+        else:
+            self.annotation_path = None
 
         # It is possible that the annotation file does not exist
-        self.has_annotation = os.path.isfile(self.annotation_path)
+        if self.annotation_path is None:
+            self.has_annotation = False
+        else:
+            # Try harder to find the annotation
+            self.has_annotation = os.path.isfile(self.annotation_path)
 
-        # Try harder to find the annotation
-        for root in [root] + roots:
-            if not self.has_annotation:
-                filename = os.path.basename(self.annotation_path)
-                folder = os.path.dirname(self.annotation_path)
-                folder = os.path.basename(folder)
-                path = os.path.join(root, 'Annotations', folder, filename)
-                if os.path.isfile(path):
-                    self.has_annotation = True
-                    self.annotation_path = path
-                    break
+            for root in [root] + roots:
+                if not self.has_annotation:
+                    filename = os.path.basename(self.annotation_path)
+                    folder = os.path.dirname(self.annotation_path)
+                    folder = os.path.basename(folder)
+                    path = os.path.join(root, 'Annotations', folder, filename)
+                    if os.path.isfile(path):
+                        self.has_annotation = True
+                        self.annotation_path = path
+                        break
 
         # Some JSON files were never exported for some reason -- so there may not be
         # an associated annotation XML
         if self.has_annotation:
             a = EasyDict(xmltodict.parse(open(self.annotation_path, 'rb'),
                                          force_list=('object', 'pt')))
+            if 'object' not in a.annotation:
+                a.annotation.object = []
+                
             for o in a.annotation.object:
                 # Boolean-ish objects are tricky to handle
                 o.deleted = literal_eval(o.deleted)
@@ -124,20 +130,24 @@ class Annotation(object):
                     break
 
         if self.image_path is None:
-            self.image_path = self.annotation_path.replace('Annotations', 'Images').replace('.xml', '.jpg')
+            if self.annotation_path is not None:
+                self.image_path = self.annotation_path.replace('Annotations', 'Images').replace('.xml', '.jpg')
 
         # Open the image (header, using PIL) if it exists. 
-        if os.path.isfile(self.image_path):
+        if self.image_path is not None and os.path.isfile(self.image_path):
             self.image = Image.open(self.image_path)
         else:
             self.image = None
 
-        # Originally this was just for a rectified facade subimage, but now I am
-        # using the class for an entire facade image.
+        # Originally this class was used just for a rectified facade subimage, 
+        # of a single cropped facade, but but now I am
+        # using the class for an entire image with several facades and sky.
 
-        if dat is None:
+        # Dat is the information on a single facade extracted from a larger image
+        if dat is None and self.image_path is not None:
+            # Try to find the dat file
             # The data is in a file alongside the image
-            dat_file = self.image_path.replace('-highlighted', '')      # Will not have '-highlighted' in the name
+            dat_file = self.image_path.replace('-highlighted', '')  # Will not have '-highlighted' in the name
             dat_file = dat_file.replace('.jpg', '.json')  # will not be a jpg
             if os.path.isfile(dat_file):
                 with open(dat_file, 'rb') as df:
@@ -161,6 +171,7 @@ class Annotation(object):
             self.projection = eye(3)
             self.translation = eye(3)
             if self.image:
+                # Centered on the pixels
                 self.extent = [-0.5,
                                self.image.width-0.5,
                                self.image.height - 0.5,
@@ -173,9 +184,15 @@ class Annotation(object):
         self.rectify_inverse_matrix = self.translation @ self.projection
 
     def _path(self, *args):
+        """Construct a complete path from a path that is relative to the root"""
         return os.path.join(self.root, *args)
 
-    def iter_objects(self, label=None):
+    def iterobjects(self, label=None, deleted=False):
+        """ Iterate over the objects
+        
+        :param label:  Only iterate object withthe given name
+        :param deleted: Set to True to include objects that have been marked as deleted. 
+        """
 
         # The label argument is now (potentially) a set of labels to show.
         # Set operations can be used to select which labels to retrieve.
@@ -185,7 +202,14 @@ class Annotation(object):
         elif isinstance(label, str):
             label = [label]
 
-        return (o for o in self.annotation.object if o.name in label)
+        if deleted:
+            return (o for o in self.annotation.object if o.name in label)
+        else:
+            return (o for o in self.annotation.object if not o.deleted and o.name in label)
+     
+    #@deprecated
+    def iter_objects(self, label=None):
+        return self.iterobjects(label)
 
     def __iter__(self):
         return self.iter_objects()
@@ -287,6 +311,47 @@ class Annotation(object):
                 if iou > max_iou:
                     yield i, j
 
+    @staticmethod
+    def new(image: str, 
+            folder:str='new', 
+            root:str = None, 
+            image_source="unspecified",
+            annotation_tool = None
+           ):
+        
+        if root is None:
+            root= config.DATA_ROOT
+        if annotation_tool is None:
+            annotation_tool = config.NAME
+            
+        image_filename = os.path.basename(image) 
+        xml_filename = os.path.splitext(image_filename)[0] + '.xml'
+        im = Image.open(image)
+        
+        
+        template = (f'<?xml version="1.0" encoding="utf-8"?>'
+                    f'<annotation>'
+                    f'<filename>{image_filename}</filename>'
+                    f'<folder>{folder}</folder>'
+                    f'<source>'
+                    f'<sourceImage>{image_source}</sourceImage>'
+                    f'<sourceAnnotation>Custom annotation editor</sourceAnnotation>'
+                    f'</source>'
+                    f'<imagesize>'
+                    f'<nrows>{im.height}</nrows>'
+                    f'<ncols>{im.width}</ncols>'
+                    f'</imagesize>'
+                    f'</annotation>')
+                    
+        os.makedirs(os.path.join(root, 'Images', folder), exist_ok=True)
+        os.makedirs(os.path.join(root, 'Annotations', folder), exist_ok=True)
+        im.save(os.path.join(root, 'Images', folder, image_filename))
+        with open(os.path.join(root, 'Annotations', folder, xml_filename), 'w') as f:
+            f.write(template)
+        
+        return Annotation(os.path.join(root, 'Annotations', folder, xml_filename))
+        
+    
     def save_annotation(self,
                         path: str=None,
                         filename: str=None,
