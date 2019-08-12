@@ -266,7 +266,10 @@ class PsvDataset(Dataset):
     def __init__(self,
                  split=None,
                  root=C.DATA_ROOT,
-                 transform=None
+                 transform=None,
+                 download=True,
+                 url=C.DATA_URL,
+                 pwd:bytes=None
                 ):
         """
         :param split: A split of the data (see the txt files under DATA_ROOT).
@@ -274,6 +277,16 @@ class PsvDataset(Dataset):
         """
 
         self.root = root
+
+        if download == 'force':
+            _download = True
+        elif download and not os.path.isdir(os.path.join(self.root, 'Images')):
+            _download = True
+        else:
+            _download = False
+        if _download:
+            download_images(root=self.root, pwd=pwd)
+
 
         if split is None:
             xmls = glob(f'{self.root}/Annotations/**/*.xml', recursive=True)
@@ -383,6 +396,31 @@ def _make_mask(ds, i, outdir='extracts'):
     np.savez(f'{outdir}/mask5/{bn.replace("jpg", "npz")}', mask5) 
     Image.fromarray(a.colors[mask5]).save(f'{outdir}/mask5/{bn}') 
 
+
+def download_images(url=None, root=None, zipname='gsv-images.zip', pwd:bytes=None):
+    if url is None:
+        url = C.DATA_URL
+    if root is None:
+        root = C.DATA_ROOT
+
+    import wget
+    wget.download(url, zip_path)
+    
+    extract_images(root, zipname, pwd)
+    
+
+def extract_images(root=None, zipname='gsv-images.zip', pwd:bytes=None):
+    import zipfile
+    import tqdm as tq
+
+    if root is None:
+        root = C.DATA_ROOT
+
+    zip_path =  os.path.join(C.DATA_ROOT, 'gsv-images.zip') 
+    with zipfile.ZipFile(zip_path) as zf:
+        # Loop over each file
+        for file in tq.tqdm(zf.namelist(), total=len(zf.namelist())):
+            zf.extract(member=file, path=root, pwd=pwd)
 
 
 TFM_SEGMENTATION = Compose(
