@@ -77,6 +77,8 @@ L = logging.getLogger(APPNAME)
 
 # TODO: We should put this in a different repo and download it on demand
 C.DATA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../psvdata'))
+C.DATA_URL = 'http://teams.cec.miamioh.edu/Vision/facades/gsv-images.zip'
+
 
 C.TEST_PLOTS = True
 

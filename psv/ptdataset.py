@@ -289,7 +289,7 @@ class PsvDataset(Dataset):
 
 
         if split is None:
-            xmls = glob(f'{self.root}/Annotations/**/*.xml', recursive=True)
+            xmls = sorted(glob(f'{self.root}/Annotations/**/*.xml', recursive=True))
         else:
             xmls = [line.strip() for line in open(f'{self.root}/{split}.txt')]
         self.xmls = xmls 

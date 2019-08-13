@@ -15,11 +15,11 @@ def test_psv_dataset_segmentation():
     mb = ds[0]
     image = mb['image']
     mask = mb['mask']
-    assert os.path.basename(image.filename) == 'chicago_illinois-000089-000011-t7jl9DdBqV7NUMA-SmNg0Q.jpg'
+    assert os.path.basename(image.filename) == 'acoruna_spain-000004-000045-22WQvYMnjiiDd_DAIXc-9g.jpg'
     assert isinstance(mask, PIL.Image.Image)
     assert mask.size == image.size
-    assert np.sum(mask) == 16233988
-    assert np.sum(image) == 1230147282
+    assert np.sum(mask) == 41435686
+    assert np.sum(image) == 882643951
 
 
 def test_psv_dataset_tensors():
@@ -41,12 +41,12 @@ def test_psv_dataset_tensors():
     assert isinstance(mask, torch.Tensor)
 
     assert mask.shape[-2:] == image.shape[-2:]
-    assert torch.sum(mask) == 16233988
+    assert torch.sum(mask) == 41435686
 
     # When converting images to tensor, torch also 
     # adjusts the range to be from 0-1. 
     # This changes the sum.
-    assert int(torch.sum(image)) == 4824271
+    assert int(torch.sum(image)) == 3461357
 
 
 def test_psv_dataset_tfm_segmentation():
@@ -63,12 +63,12 @@ def test_psv_dataset_tfm_segmentation():
     assert isinstance(mask, torch.Tensor)
 
     assert mask.shape[-2:] == image.shape[-2:]
-    assert torch.sum(mask) == 16233988
+    assert torch.sum(mask) == 41435686
 
     # When converting images to tensor, torch also 
     # adjusts the range to be from 0-1. 
     # This changes the sum.
-    assert int(torch.sum(image)) == 4824271
+    assert int(torch.sum(image)) == 3461357
 
 
 def test_psv_dataset_tfm_segmentation_cropped():
