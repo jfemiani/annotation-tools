@@ -18,7 +18,7 @@ from psv.labelboxes import LabelBoxes
 from psv.polygonselector import PolygonSelector
 from psv.polygoneditor import PolygonEditor
 from psv import config
-
+from psv.config import C
 
 class AnnotationEditor(object):
     """Edit Image Annotations
@@ -33,7 +33,7 @@ class AnnotationEditor(object):
     poly_editor: PolygonEditor
 
     def __init__(self, ax, facade=None,
-                 root=config.DATA_ROOT,
+                 root=C.DATA_ROOT,
                  on_select=None,
                  on_hover=None,
                  fill_alpha=0.4,
@@ -666,7 +666,7 @@ def run():
     p.add_argument('--input', '-i', type=str, nargs='*',
                    help="The files to edit. If none are specified, we "
                         "move through them all from oldest to newest")
-    p.add_argument('--root', type=str, default=config.DATA_ROOT,
+    p.add_argument('--root', type=str, default=C.DATA_ROOT,
                    help="The root of the dataset.")
     p.add_argument('--folder', type=str, default='merged',
                    help="The folder (group of annotations) to work with")
