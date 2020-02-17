@@ -2,6 +2,11 @@
 
 ## Overview 
 
+This is a quality assurance tool for annotations on images, especially aimed at outlining manmade objects such as architectural elements. It also has various tools to support managing labels and exporting to familiar formats. 
+
+Here is a screenshot of the annotation review tool:
+![Scrrenshot](https://github.com/jfemiani/annotation-tools/raw/master/doc/Figure_1.png)
+
 It is easier to demo than to write documentation at this phase of development -- although I should make a keymap. A demo video will be put on Google drive and I will link to it after it uploads. 
 
 Here is the video:
