@@ -683,10 +683,12 @@ def run():
     # Prevent the toolbar from handling some key press events (e.g. s)
     fig.canvas.mpl_disconnect(fig.canvas.manager.key_press_handler_id)
 
+    # Create the label selection widget in a plot at the bottom
     labels_selector_ax = plt.axes([0., 0., 1., 0.09], xticks=[], yticks=[])
     ax = plt.axes([0., 0.09, 1., 0.91], xticks=[], yticks=[])
     ax.axis('equal')
 
+    # Choose the list of annotation XMLs to display
     if args.input:
         annotations = args.input
     else:

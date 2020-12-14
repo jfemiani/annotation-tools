@@ -1,12 +1,15 @@
 import os
 import nose
+
+import psv.transforms
 from psv.config import L, C
 import PIL
 import numpy as np
 import torch
 
 def test_psv_dataset_segmentation():
-    from psv.ptdataset import PsvDataset, ToSegmentation
+    from psv.ptdataset import PsvDataset
+    from psv.transforms import ToSegmentation
 
     ds = PsvDataset(transform=ToSegmentation())
 
@@ -23,7 +26,11 @@ def test_psv_dataset_segmentation():
 
 
 def test_psv_dataset_tensors():
-    from psv.ptdataset import PsvDataset, ToSegmentation, ToTensor, Compose, DropKey
+    from psv.ptdataset import PsvDataset
+    from psv.transforms import DropKey
+    from psv.transforms import ToTensor
+    from psv.transforms import ToSegmentation
+    from psv.transforms import Compose
 
     ds = PsvDataset(transform=Compose(
         ToSegmentation(), 
@@ -109,27 +116,27 @@ def test_psv_dataset_crop_and_pad():
     import psv.ptdataset as P
 
 
-    TFM_SEGMENTATION_CROPPED = P.Compose(
-        P.ToSegmentation(), 
+    TFM_SEGMENTATION_CROPPED = psv.transforms.Compose(
+        psv.transforms.ToSegmentation(),
 
         # Crop in on the facades
-        P.SetCropToFacades(pad=20, pad_units='percent', skip_unlabeled=True, minsize=(512, 512)),
-        P.ApplyCrop('image'), 
-        P.ApplyCrop('mask'),
+        psv.transforms.SetCropToFacades(pad=20, pad_units='percent', skip_unlabeled=True, minsize=(512, 512)),
+        psv.transforms.ApplyCrop('image'),
+        psv.transforms.ApplyCrop('mask'),
         
         # Resize the height to fit in the net (with some wiggle room)
         # THIS is the test case -- the crops will not usually fit anymore
-        P.Resize('image', height=400),
-        P.Resize('mask', height=400, interpolation=P.Image.NEAREST),
+        psv.transforms.Resize('image', height=400),
+        psv.transforms.Resize('mask', height=400, interpolation=P.Image.NEAREST),
 
         # Reandomly choose a subimage
-        P.SetRandomCrop(512, 512),
-        P.ApplyCrop('image'), 
-        P.ApplyCrop('mask', fill=24), # 24 should be unlabeled
+        psv.transforms.SetRandomCrop(512, 512),
+        psv.transforms.ApplyCrop('image'),
+        psv.transforms.ApplyCrop('mask', fill=24), # 24 should be unlabeled
         
-        P.DropKey('annotation'),
-        P.ToTensor('image'),
-        P.ToTensor('mask', preserve_range=True),
+        psv.transforms.DropKey('annotation'),
+        psv.transforms.ToTensor('image'),
+        psv.transforms.ToTensor('mask', preserve_range=True),
         ) 
 
     ds = P.PsvDataset(transform=TFM_SEGMENTATION_CROPPED)
@@ -167,13 +174,15 @@ def test_psv_dataset_crop_and_pad():
          
 
 def test_compose_one_item():
-    from psv.ptdataset import ToSegmentation, Compose
+    from psv.transforms import ToSegmentation
+    from psv.transforms import Compose
     c= Compose(ToSegmentation())
     assert len(c.ops) == 1
     assert isinstance(c.ops[0], ToSegmentation)
 
 def test_compose_zero_items():
-    from psv.ptdataset import ToSegmentation, Compose
+    from psv.transforms import ToSegmentation
+    from psv.transforms import Compose
     c= Compose()
     assert len(c.ops) == 0
     assert c(a = 1, b=2) == dict(a=1, b=2)

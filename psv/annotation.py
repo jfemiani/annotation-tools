@@ -15,6 +15,8 @@ from matplotlib.patches import Polygon
 from matplotlib.text import Text
 from matplotlib import pyplot as plt
 from ast import literal_eval
+
+from psv import config
 from psv.config import L, C
 
 # class AnnotatedPolygon(object):
@@ -55,6 +57,10 @@ from psv.config import L, C
 
 
 class Annotation(object):
+    class Units:
+        PIXELS = 'pixels'
+        PROPORTIONAL = 'prop'
+
     def __init__(self, annotation=None, dat=None, root=None, roots=None):
         if root is None:
             root = C.DATA_ROOT
@@ -187,7 +193,15 @@ class Annotation(object):
         """Construct a complete path from a path that is relative to the root"""
         return os.path.join(self.root, *args)
 
-    def iterobjects(self, label=None, deleted=False):
+    def windows(self):
+        """Convenience function to iterate over windows"""
+        return self.iter_objects('window')
+
+    def facades(self):
+        """Convenience function to iterate over windows"""
+        return self.iter_objects('facade')
+
+    def iter_objects(self, label=None, deleted=False):
         """ Iterate over the objects
         
         :param label:  Only iterate object withthe given name
@@ -207,9 +221,7 @@ class Annotation(object):
         else:
             return (o for o in self.annotation.object if not o.deleted and o.name in label)
      
-    #@deprecated
-    def iter_objects(self, label=None):
-        return self.iterobjects(label)
+
 
     def __iter__(self):
         return self.iter_objects()

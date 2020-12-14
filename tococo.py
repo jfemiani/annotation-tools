@@ -153,5 +153,5 @@ if __name__ == '__main__':
     val_ds = convert_to_coco(val_annots, filt=filt)
 
     json.dump(train_ds,
-              open(os.path.join(args.outdir, f'train-{SLUG}.json'), 'w'))
-    json.dump(val_ds, open(os.path.join(args.outdir, f'val-{SLUG}.json'), 'w'))
+              open(os.path.join(args.outdir, f'train-{SLUG}.json'), 'w'), indent=True)
+    json.dump(val_ds, open(os.path.join(args.outdir, f'val-{SLUG}.json'), 'w'), indent=True)

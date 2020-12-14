@@ -8,3 +8,4 @@ matplotlib>=2.2.2
 numpy>=1.14
 Pillow>=5.4
 wget>=3
+aggdraw
