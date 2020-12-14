@@ -32,6 +32,7 @@ To get the images, have the password handy and type
 cd psdvdata
 ./get-images.sh
 ```
+The script will download imaged from [this password-protected zip file](http://teams.cec.miamioh.edu/Vision/facades/gsv-images.zip)
 
 
 ## Running the annotation editing program
