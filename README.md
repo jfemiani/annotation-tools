@@ -24,13 +24,15 @@ Here is the video:
    ```
    but if one of the requirements has an issue you should fall back to installing them one at a time using `conda install <packagename>` for each package listed in requirements.txt
 ## Data
-The data (imagery) is on google drive -- you will need to ask for permission from me  (for now) until the data is considered public. The annotations are part of this repo. 
-Once you obtain access you can put it in the correct (default) location by this:
+The data (imagery) is password protected -- you will need to ask for permission from me  (for now) until the data is considered public. 
+We are actively working on collecting and anntating new imagery that we can share publicly. 
+
+To get the images, have the password handy and type
 ```bash
- cd $REPO_FOLDER
- unzip merged.zip
+cd psdvdata
+./get-images.sh
 ```
-where `$REPO_FOLDER` should be replaced by (not surprisingly) the folder that you have cloned this repo into. 
+
 
 ## Running the annotation editing program
 
